@@ -17,8 +17,8 @@ RUN sed -i -e "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=apache/"
 RUN sed -i -e "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=apache/" /etc/apache2/envvars
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-ENV USER_ID 1000
-ENV GROUP_ID 1000
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
 RUN addgroup --gid $GROUP_ID apache
 RUN adduser --uid $USER_ID --gid $GROUP_ID --no-create-home --disabled-password --gecos '' apache
