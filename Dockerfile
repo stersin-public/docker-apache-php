@@ -20,8 +20,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 ENV USER_ID 1000
 ENV GROUP_ID 1000
 
-RUN addgroup --gid $USER_ID apache
-RUN adduser --uid $GROUP_ID --gid 1000 --no-create-home --disabled-password --gecos '' apache
+RUN addgroup --gid $GROUP_ID apache
+RUN adduser --uid $USER_ID --gid $GROUP_ID --no-create-home --disabled-password --gecos '' apache
 
 RUN chown apache:apache /var/www/html
 
