@@ -25,4 +25,6 @@ RUN adduser --uid $USER_ID --gid $GROUP_ID --no-create-home --disabled-password 
 
 RUN chown apache:apache /var/www/html
 
+EXPOSE 80
+
 CMD ["/usr/sbin/apachectl", "-DFOREGROUND"]
